@@ -61,8 +61,6 @@ endif (EIGEN3_FOUND)
 include(FindOrFetchBoost)
 # Cereal
 include(FindOrFetchCereal)
-# BTAS brings in linear algebra (BLAS++/LAPACK++)
-include(FindOrFetchBTAS)
 # OpenMP may also be used by some examples
 find_package(OpenMP COMPONENTS CXX)
 # std::execution may also be used by some examples
@@ -87,8 +85,5 @@ endif(TARGET MADworld)
 ##########################
 add_subdirectory(ttg)
 
-enable_testing(true)
 add_custom_target_subproject(ttg check USES_TERMINAL COMMAND ${CMAKE_CTEST_COMMAND} -V -R "ttg/test/" )
-add_subdirectory(tests)
-add_subdirectory(examples)
 add_subdirectory(doc)
